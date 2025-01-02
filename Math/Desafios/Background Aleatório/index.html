@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Documento</title>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+
+            body {
+                background-size: cover;
+                font-family: sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Atualize a página para alterar a imagem de fundo</h1>
+        <script>
+            function getRandomNumber(start = 0, end = 1, integer = true) {
+                let number = Math.random() * (end - start + 1) + start
+                if(integer) {
+                    return Math.floor(number)
+                }
+                return number
+            }
+
+            let randomNumber = getRandomNumber(1, 5)
+            console.log(randomNumber)
+            document.body.style.backgroundImage = `url(/images/${randomNumber}.jpg)`
+        </script>
+    </body>
+</html>

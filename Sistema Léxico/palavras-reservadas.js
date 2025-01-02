@@ -1,0 +1,68 @@
+/*
+    break
+    case
+    catch
+    class
+    const
+    continue
+    debugger
+    default
+    delete
+    do
+    else
+    export
+    extends
+    finally
+    for
+    function
+    if
+    import
+    in
+    instanceof
+    let
+    new
+    return
+    super
+    switch
+    this
+    throw
+    try
+    typeof
+    var
+    void
+    while
+    with
+    yield
+*/
+
+
+/*
+    Palavras reservadas para o futuro
+
+    enum
+    await
+    inplements
+    interface
+    package
+    private
+    protected
+    public
+    static
+    abstract
+    boolean
+    byte
+    char
+    double
+    final
+    float
+    goto
+    int
+    long
+    native
+    short
+    synchroniz
+    ed
+    throws
+    transient
+    volatile
+*/

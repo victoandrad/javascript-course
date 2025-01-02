@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <h1>teste DOM</h1>
+    <div class="container">
+        <p>teste 1</p>
+        <p>lorem <a href="#">link</a>.</p>
+        <p>teste 3</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>
+                <ul>
+                    <li>Item 2.1</li>
+                    <li>Item 2.2</li>
+                    <li>Item 2.3</li>
+                </ul>
+            </li>
+            <li>Item <a href="#">link</a></li>
+        </ul>
+    </div>
+    <script>
+        const title = document.createElement("h1")
+        const attribute = document.createAttribute("id")
+        attribute.value = "Love"
+        title.setAttributeNode(attribute)
+        const text = document.createTextNode("Luiza Aurora")
+        const div = document.createElement("div")
+        title.appendChild(text)
+        title.appendChild(div)
+
+        title.setAttribute("class", "MEU AMOR TODINHO")
+        title.setAttribute("style", "background-color: black; color: white;")
+
+        document.body.prepend(title)
+
+        document.body.append(title, "texto novo")
+
+        const title2 = document.createElement("h1")
+        title2.textContent = "título 2"
+        document.querySelector(".container").insertBefore(title2, document.querySelector(".container").firstChild)
+
+        let sublevel = document.querySelector("ul ul")
+        sublevel = sublevel.cloneNode(true)
+
+        console.log(title)
+        
+    </script>
+</body>
+</html>

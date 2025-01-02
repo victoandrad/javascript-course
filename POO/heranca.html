@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança</title>
+</head>
+<body>
+    <script>
+
+        function Animal(nome, idade, tipo) {
+            "use strict"
+            if(this === undefined) {
+                throw new SyntaxError("O objeto deve ser instacionado")
+            }
+            if(nome) this.nome = nome
+            if(idade) this.idade = idade
+            if(tipo) this.tipo = tipo
+        }
+
+        Animal.prototype.nome = null
+        Animal.prototype.idade = null
+        Animal.prototype.tipo = null
+        Humano.prototype.local = "Protótipo de Animal"
+        Animal.prototype.comer = function() {
+            console.log(`${this.nome} está comendo!`)
+        }
+
+        const animal = new Animal("Luiza", 16, "Mamífero")
+        console.log(animal)
+
+        function Humano(nome, idade, profissao) {
+            "use strict"
+            if(this === undefined) {
+                throw new SyntaxError("O objeto deve ser instacionado")
+            }
+            Animal.call(this, nome, idade, "Humano")
+            if(profissao) this.profissao = profissao
+        }
+
+        Humano.prototype = new Animal()
+        Humano.prototype.constructor = Humano
+        Humano.prototype.profissao = null
+        Humano.prototype.local = "Protótipo de Humano"
+        Humano.prototype.trabalhar = function() {
+            console.log(`${this.nome} está trabalhando`)
+        }
+
+        const humano = new Humano("Victor", 19, "Estudante")
+        console.log(humano)
+
+        function Professor(nome, idade, disciplina) {
+            "use strict"
+            if(this === undefined) {
+                throw new SyntaxError("O objeto deve ser instacionado")
+            }
+            Humano.call(this, nome, idade, "Professor")
+            if(disciplina) this.disciplina = disciplina
+        }
+
+        Professor.prototype = new Humano()
+        Professor.prototype.constructor = Humano
+        Professor.prototype.disciplina = null
+        Professor.prototype.local = "Protótipo de Professor"
+        Professor.prototype.ensinando = function() {
+            console.log(`${this.nome} está ensinando`)
+        }
+
+        const professor = new Professor("Livia", 16, "Matemática")
+        console.log(professor)
+
+        function Cachorro(nome, idade, raca) {
+            "use strict"
+            if(this === undefined) {
+                throw new SyntaxError("O objeto deve ser instacionado")
+            }
+            Animal.call(this, nome, idade, "Cachorro")
+            if(raca) this.raca = raca
+        }
+
+        Cachorro.prototype = new Animal()
+        Cachorro.prototype.constructor = Cachorro
+        Cachorro.prototype.raca = null
+        Cachorro.prototype.local = "Protótipo de Cachorro"
+        Cachorro.prototype.brincar = function() {
+            console.log(`${this.nome} está brincando`)
+        }
+
+        const cachorro = new Cachorro("Pitucha", 10, "Pitbull")
+        console.log(cachorro)
+
+        
+    </script>
+</body>
+</html>

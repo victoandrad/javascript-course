@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static</title>
+</head>
+<body>
+    <script>
+
+        // Os métodos estáticos e as propriedades estáticas são da função construtora ou classe, ou seja, as suas instâncias não os/as herdam
+        // Boas práticas: os nomes das propriedades estáticas devem ser escrita em caixa alta
+
+        // ES 5
+        function Cachorro(nome) {
+            if(nome) this.nome = nome
+        }
+        
+        Cachorro.MINHAPROPRIEDADE = "oi"
+        Cachorro.comer = function() {
+            return `${this.nome} está comendo`
+        }
+
+        const cachorro = new Cachorro("Pitucha")
+        
+        // ES 6
+        class CachorroC {
+            constructor(nome) {
+                this.nome = nome
+            }
+            
+            static MINHAPROPRIEDADE = "oi"
+            
+            static comer() {
+                return `${this.nome} está comendo`
+            }
+        }
+
+        const cachorroC = new CachorroC("Pitucha")
+
+
+    </script>
+</body>
+</html>

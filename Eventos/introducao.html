@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <style>
+        .quadrado {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: gray;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos</h1>
+    <button id="btn1">botao 1</button>
+    <button id="btn2">botao 2</button>
+    <button id="btn3">botao 3</button>
+    <script>
+        const btn1 = document.getElementById("btn1")
+        const btn2 = document.getElementById("btn2")
+        const btn3 = document.getElementById("btn3")
+
+        function clicou() {
+            console.log("click btn ")
+        }
+        btn1.onclick = function() {
+            console.log("click btn1 funcao anonima")
+        }
+
+        btn1.onclick = clicou
+
+        btn2.addEventListener("click", clicou)
+
+        btn2.addEventListener("click", function() {
+            console.log("click funcao anonima")
+        })
+
+        btn2.onclick = function() {
+            console.log("funcao anonima no btn2")
+        }
+
+
+
+        btn3.addEventListener("click", function(event) {
+            event.stopPropagation()
+            console.log("clicou no botão")
+        }, false)
+
+        document.addEventListener("click", function() {
+            console.log("clicou no document")
+        }, false)
+    </script>
+</body>
+</html>

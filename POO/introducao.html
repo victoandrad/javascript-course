@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // As funções construtoras possuem um prototype que é herdado para todos as instâncias dela
+        // O prototype é um objeto que é vazio por padrão
+        function Animal(tipo) {
+            if(tipo) this.tipo = tipo
+        }
+        
+        // Acessando o prototype, basta criar a propriedade ou método
+        Animal.prototype.obterTipo = function() {
+            return this.tipo
+        }
+
+        Animal.prototype.tipo = "Desconhecido"
+
+        // Agora, todas as instâncias de Animal terão o mesmo prototype
+        // Vale ressaltar que se alterarmos o prototype, todas as instâncias criadas anteriormente também sofrerão a alteração, pois todas as instâncias apontam para o mesmo lugar.
+        const cachorro = new Animal("mamífero")
+        const gato = new Animal("mamífero")
+        const peixe = new Animal()
+
+    </script>
+</body>
+</html>

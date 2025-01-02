@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <script>
+
+        function Animal(tipo, nome, idade) {
+            if(tipo) this.tipo = tipo
+            if(nome) this.nome = nome
+            if(idade) this.idade = idade
+
+        }
+
+        Animal.prototype.tipo = "Desconhecido"
+        Animal.prototype.nome = "Desconhecido"
+        Animal.prototype.idade = "Desconhecido"
+        Animal.prototype.andar = function() {
+            console.log(`${this.nome} está andando!`);
+        };
+
+        function Humano(nome, idade, profissao) {
+            Animal.call(this, "Mamífero", nome, idade)
+            if(profissao) this.profissao = profissao
+        }
+
+        Humano.prototype = new Animal()
+        Humano.prototype.constructor = Humano
+        Humano.prototype.profissao = "Desconhecido";
+        Humano.prototype.jogar = function() {
+            console.log(`${this.nome} está jogando!`);
+        };
+
+        const animal = new Animal("Mamífero", "Luiza", 16)
+        console.log(animal)
+
+        const humano = new Humano("Luiza", 16, "Estudante")
+        console.log(humano)
+    </script>
+</body>
+</html>

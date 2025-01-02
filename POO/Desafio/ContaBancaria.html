@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta Bancária</title>
+</head>
+<body>
+    <script>
+        
+        class ContaBancaria {
+            constructor(numeroConta, titular, saldo) {
+                if(this.constructor === ContaBancaria) throw new Error("Não é possível instanciar uma classe abstrata");
+                this.numeroConta = numeroConta;
+                this.titular = titular;
+                this.saldo = saldo;
+            };
+
+            depositar(valor) {
+                this.saldo += valor;
+            };
+
+            sacar() {
+                throw new Error("Método não implementado");
+            };
+        };
+
+        class ContaCorrente extends ContaBancaria {
+            constructor(numeroConta, titular, saldo, limite) {
+                super(numeroConta, titular, saldo);
+                this.limite = limite;
+            };
+
+            sacar(valor) {
+                let disponivel = this.saldo + this.limite;
+                if(valor > disponivel) throw new Error("Saldo insuficiente");
+                this.saldo -= valor;
+            };
+        };
+
+        class ContaPoupanca extends ContaBancaria {
+            constructor(numeroConta, titular, saldo) {
+                super(numeroConta, titular, saldo);
+            }
+
+            sacar(valor) {
+                if(valor > this.saldo) throw new Error("Saldo insuficiente");
+                this.saldo -= valor;
+            };
+        };
+
+        class Cliente {
+            constructor(nome, documento, tipoDocumento) {
+                if(this.constructor === Cliente) throw new Error("Não é possível instanciar uma classe abstrata");
+                this.nome = nome;
+                this.documento = documento;
+                this.tipoDocumento = tipoDocumento;
+            };
+
+            get dados() {
+                return `nome: ${this.nome}, documento: ${this.documento}`;
+            };
+        };
+
+        class PessoaFisica extends Cliente {
+            constructor(nome, documento) {
+                super(nome, documento, "CPF");
+            };
+        };
+
+        class PessoaJuridica extends Cliente {
+            constructor(nome, documento) {
+                super(nome, documento, "CNPJ");
+            };
+        };
+
+        class Transferir {
+            static transferir(contaPagador, contaBeneficiario, valor) {
+                if(!contaPagador instanceof ContaBancaria || !contaBeneficiario instanceof ContaBancaria) {
+                    throw new Error("As contas envolvidas na transferência devem ser instâncias de ContaBancaria");
+                };
+
+                try {
+                    contaPagador.sacar(valor);
+                    contaBeneficiario.depositar(valor);
+                } catch(error) {
+                    console.error(error);
+                };
+            };
+        };
+
+        const cliente1 = new PessoaFisica("Victor Andrade", "123.123.123-12", "CPF");
+        const cliente2 = new PessoaJuridica("Luiza Aurora", "12.123.123/0001-12", "CNPJ");
+
+        const cc = new ContaCorrente(123123123, cliente1, 0, 1000);
+        const cp = new ContaPoupanca(123123123, cliente2, 0, 1000);
+        
+    </script>
+</body>
+</html>

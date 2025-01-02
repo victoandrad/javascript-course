@@ -1,0 +1,5 @@
+// includes
+// Retorna verdadeiro se encontrar o elemento passado por parâmetro
+
+let arr = [4, 5, 10, 20, 35, 4, 5]
+console.log(arr.includes(10))

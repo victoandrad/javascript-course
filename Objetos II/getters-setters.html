@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getters & Setters</title>
+</head>
+<body>
+    <script>
+        ;(function(){
+            let tipo = "";
+            let tiposPermitidos = { "Mamífero": true, "Anfíbio": false };
+            const cachorro = {
+                nome: "Cachorro 1",
+                get tipo() {
+                    return tipo;
+                },
+                set tipo(novoTipo) {
+                    if(tiposPermitidos[novoTipo]) {
+                        tipo = novoTipo;
+                    } else {
+                        console.error("Tipo não permitido")
+                    };
+                },
+            };
+            this.cachorro = cachorro
+        })();    
+    </script>
+</body>
+</html>

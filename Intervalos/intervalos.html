@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <script>
+
+        // INTERVALO PARA EXECUTAR O CÓDIGO DE TEMPOS EM TEMPOS
+        let counter = 1
+        let intervalo = setInterval(function() {
+            console.log(counter++)
+
+            if (counter > 15) {
+                clearInterval(intervalo)
+            }
+
+        }, 1000)
+
+        // INTERVALO PARA REALIZAR UM DELAY
+        setTimeout(function() {
+            console.log("Depois de 2 segundos")
+        }, 2000)
+        
+    </script>
+</body>
+</html>

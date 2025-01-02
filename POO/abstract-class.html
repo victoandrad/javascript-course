@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <script>
+
+        class Animal {
+            constructor(tipo) {
+
+                // Se o construtor se referir ao próprio Animal, é retornado um erro
+                // Deixa de ser possível instanciar essa classe abstrata
+                if(this.constructor === Animal) throw new Error("Animal é uma classe abstrata")
+                if(tipo) this.tipo = tipo
+            }
+
+            comer() {
+                return `${this.tipo} está comendo!`
+            }
+        }
+
+        class Gato extends Animal {
+            constructor(nome) {
+                super("Mamífero")
+                if(nome) this.nome = nome
+            }
+        }
+
+        const gato = new Gato("Luiza")
+
+        console.log(gato)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <h1>teste DOM</h1>
+    <div class="container">
+        <p>teste 1</p>
+        <p>lorem <a href="#">link</a>.</p>
+        <p>teste 3</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>
+                <ul>
+                    <li>Item 2.1</li>
+                    <li>Item 2.2</li>
+                    <li>Item 2.3</li>
+                </ul>
+            </li>
+            <li>Item <a href="#">link</a></li>
+        </ul>
+    </div>
+    <script>
+        // parentElement
+        // Retorna o elemento pai do elemento
+        const body = document.body
+        const elementoPai = body.parentElement
+        console.log(elementoPai)
+        console.log("---------------")
+
+        // parentNode
+        // O elementoPai não tem nenhum elemento pai
+        console.log(elementoPai.parentElement) // Retorna null
+        console.log(elementoPai.parentNode) // Retorna o nó do tipo document
+    </script>
+</body>
+</html>

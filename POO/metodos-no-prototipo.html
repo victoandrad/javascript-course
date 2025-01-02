@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <script>
+
+        const criarCachorroPrototype = {
+            latir() {
+                return `${this.nome} está latindo!`
+            },
+            andar(distancia) {
+                posicao += distancia
+                return `${this.nome} andou ${distancia} metros!`
+            }
+        }
+
+        function criarCachorro(nome) {
+            let posicao = 0
+
+            const obj = {
+                nome: nome,
+
+                get posicao() {
+                    return `A posição atual é ${posicao}`
+                },
+
+                set posicao(distancia) {
+                    posicao += distancia
+                }
+            }
+
+            Object.setPrototypeOf(obj, criarCachorroPrototype)
+
+            return obj
+        }
+
+        const dog1 = criarCachorro("Pitucha")
+        const dog2 = criarCachorro("Luiza")
+        console.log(dog1)
+        console.log(dog2)
+
+    </script>
+</body>
+</html>

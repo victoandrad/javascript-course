@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+
+        // ES 5  
+
+        function Animal(tipo) {
+            if(!this instanceof Animal) throw new TypeError("O objeto deve ser instanciado")
+            if(tipo) this.tipo = tipo
+        }
+
+        Animal.prototype.tipo = null
+        Animal.prototype.obterTipo = function() { return this.tipo }
+
+        const animal = new Animal("mamífero")
+
+        function Cachorro(nome) {
+            if(!this instanceof Cachorro) throw new TypeError("O objeto deve ser instanciado")
+            if(nome) this.nome = nome
+            Animal.call(this, "Mamífero")
+        }
+
+        Cachorro.prototype = new Animal()
+        Cachorro.prototype.constructor = Cachorro
+        Cachorro.prototype.nome = null
+
+        const cachorro = new Cachorro("Pitucha")
+        console.log(cachorro)
+
+
+        // ES 6
+
+        // A sintaxe de classe é apenas uma maneira mais moderna de construir funções construtoras, mas o JS continua interpretando da mesma forma, tanto que typeof class === "function"
+        
+        class AnimalC {
+            // Quando usado o operador new, a função constructor é chamada automaticamente
+            constructor(tipo) {
+                this.tipo = tipo
+            }
+
+            // Podemos inserir os métodos dessa forma
+            // Os métodos serão inseridos automaticamente no prototype
+            obterTipo() {
+                return this.tipo
+            }
+        }
+
+        AnimalC.prototype.tipo = null
+
+        // Se chamar uma classe sem o operador new, é retornado um erro
+        const animalC = new AnimalC("Mamífero")
+        console.log(animalC)
+
+        class CachorroC extends AnimalC {
+            constructor(nome) {
+                // Chamamos o método super para passar os parâmetros para AnimalC
+                super("Mamífero")
+                this.nome = nome
+            }
+            
+            brincar() {
+                console.log(`${this.nome} está brincando!`)
+            }
+        }
+
+        CachorroC.prototype.nome = null
+
+        const cachorroC = new CachorroC("Luiza")
+        console.log(cachorroC)
+
+    </script>
+</body>
+</html>
