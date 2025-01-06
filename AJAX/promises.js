@@ -1,11 +1,12 @@
 // Promise
 // É um objeto para facilitar a manipulação de callbacks.
 
-function createPromise(method, url) {
+function createPromise(method, url, body = null) {
     return new Promise(function(resolve, reject) {
         const xhr = new XMLHttpRequest()
         xhr.open(method, url)
-        xhr.send(null)
+        xhr.setRequestHeader("Contenty-Type", "application/json")
+        xhr.send(body)
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status < 400) {
