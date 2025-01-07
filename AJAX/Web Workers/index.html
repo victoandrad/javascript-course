@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Workers</title>
+</head>
+<body>
+  <h1>Web Workers</h1>
+  <p>É uma funcionalidade para executar uma ação muito pesada computacionalmente.</p>
+  <p>O navegador é single-thread, significa que apenas uma coisa pode ser executado por vez. Se colocarmos um código na fila que demora muito tempo para sua conclusão, o resto das funcionalidades do navegador e do próprio website ficarão suspensos até que o código demorado seja executado</p>
+  
+  <img src="gif.gif" alt="GIF">
+  <button>Iniciar</button>
+  <input type="text">
+
+</body>
+<script>
+  let count = 0
+  document.querySelector("img").addEventListener("click", () => {
+    console.log("clicou na imagem", ++count)
+  })
+
+  document.querySelector("button").addEventListener("click", function () {
+    const startTime = Date.now()
+    while (Date.now() - startTime <= 2000) {
+      // aguardando...
+    }
+  })
+  
+</script>
+</html>
