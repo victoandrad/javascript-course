@@ -1,0 +1,1 @@
+// The screen object stores information about the screen (the monitor, not the browser)

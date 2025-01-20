@@ -1,1 +1,0 @@
-The navigator object stores information about the User Agent

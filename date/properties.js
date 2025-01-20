@@ -1,21 +1,22 @@
 const data = new Date()
 
-// Retorna o dia do mês
+// returns the day of the month
 console.log(data.getDate())
 
-// Retorna o dia da semana
+// returns the day of the week
 console.log(data.getDay())
 
-// Retorna o ano
+// returns the year
 console.log(data.getFullYear())
 
-// Retorna a hora
+// returns the hours
 console.log(data.getHours())
 
-// Retorna os milissegundos
+// returns the milliseconds
 console.log(data.getMilliseconds())
 
-// Retorna os minutos
+// returns the minutes
 console.log(data.getMinutes())
 
+// transform date into a string
 console.log(data.toString())
