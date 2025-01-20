@@ -1,14 +1,15 @@
-
-O objeto history armazena o histórico das páginas que o usuário acessou
+The history object stores the history of pages that the user has accessed
 
 history.forward
-avança uma página
+forward one page of history
 
 history.back
-volta uma página
+back one page of history
 
 history.length
-quantidade de páginas
+quantity of pages in the history
 
 history.go
-navega no histórico conforme o índice passado
+access the page according to the index
+
+

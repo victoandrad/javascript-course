@@ -1,29 +1,28 @@
-
-O objeto location armazena informações da URL
+The location object stores information about the URL
 
 location.href
-retorna a URL completa
+Returns the full URL.
 
 location.search
-retorna os parâmetros passados pela URL
+Returns the parameters passed in the URL.
 
 location.pathname
-retorna o caminho da URL
+Returns the path of the URL.
 
 location.host
-retorna o domínio
+Returns the domain.
 
 location.protocol
-retorna o protocolo usado
+Returns the protocol used.
 
 location.hash
-retorna o hash da URL
+Returns the hash of the URL.
 
 location.assign
-acessa a URL passada por parâmetro
+Navigates to the URL passed as a parameter.
 
 location.reload
-recarrega a página
+Reloads the page.
 
 location.replace
-acessa a URL passada por parâmetro e substitui a URL antiga no history
+Navigates to the URL passed as a parameter and replaces the old URL in the history.

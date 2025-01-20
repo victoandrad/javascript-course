@@ -1,4 +1,1 @@
-
-O objeto navigator armazena informações do User Agent
-
-navigator
+The navigator object stores information about the User Agent

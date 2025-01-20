@@ -1,27 +1,42 @@
-
+The window object contains general information
 
 window.alert
-mostra um aviso na tela
+shows a warning on the screen
 
 window.confirm
-mostra um aviso com botão de confirmação na tela
+shows a warning with a confirmation button
 
 window.prompt
-mostra uma entrada de dados
+shows a data entry
 
 window.open
-acessa a URL passada por parâmetro
+accesses the URL passed by parameter
 
 window.close
-fecha a URL aberta pelo método window.open
-
-
+closes the URL opened by the window.open method
 
 window.scrollTo
-realiza o scroll para as coordenadas X e Y informadas
+performs the scroll to the informed X and Y coordinates
 
 window.scrollBy
-realiza a soma nas coordenadas X e Y
+performs the sum in the X and Y coordinates
 
 
 
+window.innerWidth
+The usable width of the browser (where the site is rendered).
+
+window.innerHeight
+The usable height of the browser (where the site is rendered).
+
+window.outerWidth
+The total width of the browser.
+
+window.outerHeight
+The total height of the browser.
+
+window.screenX
+The horizontal distance of the browser relative to the screen.
+
+window.screenY
+The vertical distance of the browser relative to the screen.
