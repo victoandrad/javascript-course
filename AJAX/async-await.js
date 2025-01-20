@@ -1,23 +1,20 @@
 // async/await
-// São instruções para transformar um código assíncrono para síncrono
+// these are instructions to transform asynchronous code into synchronous code
 
-// A palavra async declara uma função assíncrona. Uma função assíncrona sempre retorna uma Promise, mesmo que internamente não use
-
-async function minhaFuncao() {
+// the word async declares an asynchronous function. An asynchronous function always returns a Promise, even if internally it does not use
+async function myFunction() {
     return "Resultado"
 }
 
-// Significa que podemos fazer o seguinte
-minhaFuncao()
+myFunction()
     .then()
     .catch()
     .finally()
 
-// A palavra await só pode ser usada em funções que foram declaradas assíncronas.
 
+// the word await can only be used in functions that have been declared asynchronous.
+// pause the code so the promise is resolved
 async function exemplo() {
     let valor = await Promise.resolve(42)
     console.log(valor)
 }
-
-// Nesse caso, o await pausa o código para que a Promise seja resolvida, garantindo que a variável valor tenha algo para o console imprimir.

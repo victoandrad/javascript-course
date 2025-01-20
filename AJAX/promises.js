@@ -1,5 +1,5 @@
-// Promise
-// É um objeto para facilitar a manipulação de callbacks.
+// promise
+// it is an object to facilitate callback manipulation.
 
 function createPromise(method, url, body = null) {
     return new Promise(function(resolve, reject) {
@@ -20,17 +20,16 @@ function createPromise(method, url, body = null) {
     })
 }
 
-// Chamamos o método passando os parâmetros esperados
-// Não é necessário passar callback como parâmetro
+// we call the method passing the expected parameters
+// no need to pass callback as parameter
 createPromise("GET", "database.json")
-    // O método then será executado quando a requisição for um sucesso
+    // then method will executed when the request is a sucessful
     .then(response => {
         console.log("Tudo certo")
     })
-    // O método catch será executado quando a requisição for um fracasso
+    // catch method will executed when the request is not a sucessful
     .catch(error => {
         console.log("Ocorreu um erro")
     })
 
-// É uma convenção usar response e error como nome dos parâmetros retornados pela promise
-
+// it is a convention to use response and error as the name of the parameters returned by the promise

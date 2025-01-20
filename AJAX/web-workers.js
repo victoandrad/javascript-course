@@ -1,19 +1,20 @@
 // web workers
 
-// O navegador é single-thread, ou seja, apenas uma ação pode ser executada por vez.
-// Quando executamos um processo demorado, a interface fica suspensa, não sendo possível interagir com ela.
+// the browser is single-thread, meaning only one action can be execute at a time 
+// when is executed a long process, the interface is suspended, making it impossible to interact with it.
 
-// Instanciando o Worker
-const worker = new Worker("URL do script")
+// creating a worker
+const worker = new Worker("script-url")
 
-    // Um script fictício
-    // Dentro deste script, o self referencia o worker que o chamou
-    self.postMessage("Processo demorado finalizado")
+    // fake script
+    // inside this script, the self references the work that called it
+    self.postMessage("Long process is finished")
 
-// Precisamos enviar uma mensagem para o worker começar o seu funcionamento
-worker.postMessage("Mensagem enviada pelo Worker")
 
-// Precisamos receber a mensagem enviada pelo worker
+// needs to send a message to the worker to start
+worker.postMessage("Message sent by worker")
+
+// needs to receive the message sent by the worker
 worker.addEventListener("message", (e) => {
     console.log(e)
     console.log(e.data)

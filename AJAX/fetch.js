@@ -1,30 +1,31 @@
 // fetch
-// É a simplificação da Promise
+// it is a promise simplification
 
 function createFetch(method, url, body = null) {
-    // O primeiro parâmetro é o endereço da requisição
-    // O segundo parâmetro é o objeto de configuração da requisição
+    // the first parameter is the request address
+    // the second parameter is the configuration object of the request
     return fetch(url, {
         method: method,
-        body: body, // Lembrando que deve ser stringfy
+        body: body, // needs to be a string
         headers: {
             "Content-Type": "application/json"
         }
     })
-    // O fetch sempre retorna uma requisição com sucesso
-    // O único caso que retorna um erro é quando a requisição não pôde ser efetuada
-    // Então precisamos verificar o status da requisição para impedir os erros HTTP 
+    // the fetch method always returns a sucessful request
+    // the only case that returns an error, is when the request could not be made
+
+    // needs to check the request status to prevent HTTP errors
     .then(response => onError(response))
-    // Precisamos instanciar o JSON passado pelo body
+    // needs to instantiate the JSON
     .then(response => response.json())
 
-    // O método recebe a Promise por parâmetro
+    // the method receives the promise as a parameter
     function onError(response) {
-        // A promise tem uma propriedade que informa o status da requisição
+        // the promise has a property that stores the request status
         if (!response.ok) {
             throw new Error("Internal Server Error. HTTP Status: " + response.status)
         }
-        // Se a requisição foi um sucesso, é retornado a Promise
+        // if the request is sucessful, the promise is returned
         return response
     }
 }
