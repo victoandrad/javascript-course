@@ -1,7 +1,7 @@
-// Funções, no JS, são tratadas como qualquer outro objeto.
+// functions are like any other object
 
-let minhaFunção = new Function()
-let meuObjeto = new Object()
-let meuArray = new Array()
+let myFunction = new Function()
+let myObject = new Object()
+let myArray = new Array()
 
-console.log(typeof minhaFunção, typeof meuObjeto, typeof meuArray)
+console.log(typeof myFunction, typeof meuObjeto, typeof myArray)
